@@ -1,0 +1,217 @@
+// Ionic Variables and Theming. For more info, please see:
+// http://ionicframework.com/docs/v2/theming/
+@import "ionic.globals";
+
+// Shared Variables
+// --------------------------------------------------
+// To customize the look and feel of this app, you can override
+// the Sass variables found in Ionic's source scss files.
+// To view all the possible Ionic variables, see:
+// http://ionicframework.com/docs/v2/theming/overriding-ionic-variables/
+
+$text-color:        #000;
+//$background-color:  #fff;
+$rojo_emer : #ee1d23;
+$azul_claro: #003c74;
+$azul_oscuro: #114879;
+$font-emer-light: 'Conv_TheSans_B2_ExtraLight',Sans-Serif;
+$font-emer-regular: 'Conv_TheSans-Regular_44265',Sans-Serif;
+$font-emer-bold: 'Conv_TheSans_B6_SemiBold',Sans-Serif;
+
+@mixin gradiente() {
+    /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#c9cacc+0,f0f0f1+58,ffffff+70 */
+    background: #c9cacc; /* Old browsers */
+    background: -moz-linear-gradient(top,  #c9cacc 0%, #f0f0f1 58%, #ffffff 70%); /* FF3.6-15 */
+    background: -webkit-linear-gradient(top,  #c9cacc 0%,#f0f0f1 58%,#ffffff 70%); /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient(to bottom,  #c9cacc 0%,#f0f0f1 58%,#ffffff 70%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#c9cacc', endColorstr='#ffffff',GradientType=0 ); /* IE6-9 */
+}
+
+@mixin gradienteForm(){
+    /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#d6dbdc+0,cbd2d5+58,c2c9cc+70 */
+  background: #d6dbdc; /* Old browsers */
+  background: -moz-linear-gradient(top,  #d6dbdc 0%, #cbd2d5 58%, #c2c9cc 70%); /* FF3.6-15 */
+  background: -webkit-linear-gradient(top,  #d6dbdc 0%,#cbd2d5 58%,#c2c9cc 70%); /* Chrome10-25,Safari5.1-6 */
+  background: linear-gradient(to bottom,  #d6dbdc 0%,#cbd2d5 58%,#c2c9cc 70%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#d6dbdc', endColorstr='#c2c9cc',GradientType=0 ); /* IE6-9 */
+}
+
+@mixin gradienteBtn(){
+
+  /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#82c4d1+0,3378a1+43,00467b+88,004478+88 */
+  background: #82c4d1; /* Old browsers */
+  background: -moz-linear-gradient(top,  #82c4d1 0%, #3378a1 43%, #00467b 88%, #004478 88%); /* FF3.6-15 */
+  background: -webkit-linear-gradient(top,  #82c4d1 0%,#3378a1 43%,#00467b 88%,#004478 88%); /* Chrome10-25,Safari5.1-6 */
+  background: linear-gradient(to bottom,  #82c4d1 0%,#3378a1 43%,#00467b 88%,#004478 88%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#82c4d1', endColorstr='#004478',GradientType=0 ); /* IE6-9 */
+}
+
+@mixin gradienteInput(){
+  /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#b8b9b9+0,c5c7c7+49,e1e1e1+100,d2d5d6+100 */
+  background: #b8b9b9; /* Old browsers */
+  background: -moz-linear-gradient(top,  #b8b9b9 0%, #c5c7c7 49%, #e1e1e1 100%, #d2d5d6 100%); /* FF3.6-15 */
+  background: -webkit-linear-gradient(top,  #b8b9b9 0%,#c5c7c7 49%,#e1e1e1 100%,#d2d5d6 100%); /* Chrome10-25,Safari5.1-6 */
+  background: linear-gradient(to bottom,  #b8b9b9 0%,#c5c7c7 49%,#e1e1e1 100%,#d2d5d6 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#b8b9b9', endColorstr='#d2d5d6',GradientType=0 ); /* IE6-9 */
+}
+
+
+@mixin gradienteLabel(){
+  /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#d6dbdc+0,cbd2d5+49,e1e1e1+100,c4cbce+100 */
+  background: #d6dbdc; /* Old browsers */
+  background: -moz-linear-gradient(top,  #d6dbdc 0%, #cbd2d5 49%, #e1e1e1 100%, #c4cbce 100%); /* FF3.6-15 */
+  background: -webkit-linear-gradient(top,  #d6dbdc 0%,#cbd2d5 49%,#e1e1e1 100%,#c4cbce 100%); /* Chrome10-25,Safari5.1-6 */
+  background: linear-gradient(to bottom,  #d6dbdc 0%,#cbd2d5 49%,#e1e1e1 100%,#c4cbce 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#d6dbdc', endColorstr='#c4cbce',GradientType=0 ); /* IE6-9 */
+  -webkit-box-shadow: 0px -3px 3px 0px rgba(50, 50, 50, 0.37);
+  -moz-box-shadow:    0px -3px 3px 0px rgba(50, 50, 50, 0.37);
+  box-shadow:         0px -3px 3px 0px rgba(50, 50, 50, 0.37);
+}
+
+@mixin gradienteIonItem(){
+    background: #023f74; /* Old browsers */
+    background: -moz-linear-gradient(left,  #023f74 0%, #3378a1 50%, #86c9d4 100%); /* FF3.6-15 */
+    background: -webkit-linear-gradient(left,  #023f74 0%,#3378a1 50%,#86c9d4 100%); /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient(to right,  #023f74 0%,#3378a1 50%,#86c9d4 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#023f74', endColorstr='#86c9d4',GradientType=1 ); /* IE6-9 */
+}
+
+@mixin gradienteBtnUSer() {
+    background: #dbdcde; /* Old browsers */
+    background: -moz-radial-gradient(center, ellipse cover,  #dbdcde 0%, #cacbcd 66%, #cacbcd 100%, #d6d7d9 100%); /* FF3.6-15 */
+    background: -webkit-radial-gradient(center, ellipse cover,  #dbdcde 0%,#cacbcd 66%,#cacbcd 100%,#d6d7d9 100%); /* Chrome10-25,Safari5.1-6 */
+    background: radial-gradient(ellipse at center,  #dbdcde 0%,#cacbcd 66%,#cacbcd 100%,#d6d7d9 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#dbdcde', endColorstr='#d6d7d9',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
+}
+
+@mixin boxCotizador(){
+    margin-top: 4%;
+    background: #e2e5e6; /* Old browsers */
+    background: -moz-linear-gradient(top,  #e2e5e6 0%, #c1c7cb 50%, #b1b9be 100%, #e1e1e1 100%); /* FF3.6-15 */
+    background: -webkit-linear-gradient(top,  #e2e5e6 0%,#c1c7cb 50%,#b1b9be 100%,#e1e1e1 100%); /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient(to bottom,  #e2e5e6 0%,#c1c7cb 50%,#b1b9be 100%,#e1e1e1 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#e2e5e6', endColorstr='#e1e1e1',GradientType=0 ); /* IE6-9 */
+
+    box-shadow: inset -15px -14px 34px -28px #ABABAB;
+    -webkit-box-shadow: inset -15px -14px 34px -28px #ABABAB;
+    -moz-box-shadow: inset -15px -14px 34px -28px #ABABAB;
+    -o-box-shadow: inset -15px -14px 34px -28px #ABABAB;
+    height: 60px;
+    border-radius: 20px;
+    .icon_box{
+        color: #8c8d8e;
+        font-size: 2.7em;
+        padding: 0px 0px 0px 10px;
+    }
+    .p_box {
+        text-align: left;
+        margin: 0px;
+        padding: 5px 0px 0px 35px;
+        color: $azul_oscuro;
+        font-family: $font-emer-bold;
+        font-size: 16px;
+        font-weight: bold;
+    };
+}
+
+@mixin btnAzul(){
+    @include gradienteBtn();
+    margin-top: 10%;
+    border-radius: 10px;
+    font-family: $font-emer-light;
+    font-size: 20px;
+    font-weight: normal;
+    height: 45px;
+    letter-spacing: 2px;
+}
+.bar-button-default-md, .bar-button-clear-md-default, .bar-button-md-default {
+    color: #003e71 !important;
+    background-color: transparent;
+}
+.toolbar-background-md {
+    border-color: #b2b2b2;
+    background: none !important;
+}
+
+
+
+// Named Color Variables
+// --------------------------------------------------
+// Named colors makes it easy to reuse colors on various components.
+// It's highly recommended to change the default colors
+// to match your app's branding. Ionic uses a Sass map of
+// colors so you can add, rename and remove colors as needed.
+// The "primary" color is the only required color in the map.
+
+$colors: (
+  primary:    #387ef5,
+  secondary:  #32db64,
+  danger:     #f53d3d,
+  light:      #f4f4f4,
+  dark:       #222
+);
+
+
+// App iOS Variables
+// --------------------------------------------------
+// iOS only Sass variables can go here
+
+
+
+
+// App Material Design Variables
+// --------------------------------------------------
+// Material Design only Sass variables can go here
+
+
+
+
+// App Windows Variables
+// --------------------------------------------------
+// Windows only Sass variables can go here
+
+
+
+
+// App Theme
+// --------------------------------------------------
+// Ionic apps can have different themes applied, which can
+// then be future customized. This import comes last
+// so that the above variables are used and Ionic's
+// default are overridden.
+
+@import "ionic.theme.default";
+
+
+// Ionicons
+// --------------------------------------------------
+// The premium icon font for Ionic. For more info, please see:
+// http://ionicframework.com/docs/v2/ionicons/
+
+$ionicons-font-path: "../assets/fonts";
+@import "ionicons";
+
+
+@font-face {
+	font-family: 'Conv_TheSans_B2_ExtraLight';
+	src: url('../assets/fonts/TheSans_B2_ExtraLight.eot');
+	src: local('☺'), url('../assets/fonts/TheSans_B2_ExtraLight.woff') format('woff'), url('../assets/fonts/TheSans_B2_ExtraLight.ttf') format('truetype'), url('../assets/fonts/TheSans_B2_ExtraLight.svg') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'Conv_TheSans-Regular_44265';
+	src: url('../assets/fonts/TheSans-Regular_44265.eot');
+	src: local('☺'), url('../assets/fonts/TheSans-Regular_44265.woff') format('woff'), url('../assets/fonts/TheSans-Regular_44265.ttf') format('truetype'), url('../assets/fonts/TheSans-Regular_44265.svg') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'Conv_TheSans_B6_SemiBold';
+	src: url('../assets/fonts/TheSans_B6_SemiBold.eot');
+	src: local('☺'), url('../assets/fonts/TheSans_B6_SemiBold.woff') format('woff'), url('../assets/fonts/TheSans_B6_SemiBold.ttf') format('truetype'), url('../assets/fonts/TheSans_B6_SemiBold.svg') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}

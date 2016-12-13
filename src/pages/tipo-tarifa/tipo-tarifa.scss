@@ -1,0 +1,82 @@
+page-tipo-tarifa {
+    @include gradiente();
+    text-align: center;
+
+    .logo_portal{
+        text-align: center;
+        margin-top: 3%;
+        img{
+            width: 50%;
+        }        
+    }
+    .box_cotizador{
+        @include boxCotizador();
+    }
+
+    .lista_gris{
+        //margin-top: 10%;
+        background-color: #cdd3d5;
+        border-top-left-radius: 15px;
+        border-top-right-radius: 15px;
+        border: 1px solid #ccc;
+        
+        ion-list-header{
+            background-color: #cdd3d5;
+            border-top-left-radius: 15px;
+            border-top-right-radius: 15px;
+        }
+
+        .titulo{
+            color: $azul_claro;
+            font-family: $font-emer-bold;
+            font-size: 19px;
+            padding: 10px 0px;
+            margin: 0px;
+        }
+
+        ion-item-divider{
+            background-color: #cdd3d5;
+            border-bottom: 3px inset #a9b1b3;
+            color: $azul_claro;
+            font-family: $font-emer-regular;
+            font-size: 1.2em;
+            ion-icon{
+                color: #aeb4b8;
+                font-size: 2em;
+                font-weight: bold;
+                border-left: 1px outset #aeb4b8;
+                padding-left: 20px; 
+            }            
+        }
+        ion-item{
+            @include gradienteIonItem();
+            color:#FFF;
+        }
+        
+        .item-radio-checked.item-md ion-label{
+            color: #FFF;
+            font-family: $font-emer-bold;
+        }
+        .radio-md .radio-checked {
+            border-color: #f4f4f4;
+        }
+        .radio-md .radio-inner{
+            background-color: #a60a11;
+        }        
+        .list-header-md, .list-md ion-item-divider {
+            border-bottom: 3px inset #a9b1b3;
+        }
+
+    }
+    .item-md_{
+        background-color: transparent;
+        font-size: 1em;
+        height: 45px;
+        
+    }
+
+    .btn_azul{
+        @include btnAzul();
+    }    
+
+}

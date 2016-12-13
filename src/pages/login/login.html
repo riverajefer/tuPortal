@@ -1,0 +1,26 @@
+<ion-header>
+  <ion-navbar>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <div class="logo_portal">
+      <img src="assets/images/tuportal.png" alt="Tu Portal">
+  </div> 
+  <p>
+    Aquí encontrarás herramientas de apoyo <br> para tu gestión comercial 
+  </p>
+  <form class="form_login" (submit)="loginForm($event)">
+    <ion-list>
+      <ion-item class="borde">
+        <ion-label><ion-icon name="person"></ion-icon></ion-label>
+        <ion-input placeholder="Usuario" type="text" [(ngModel)]="login.user" name="user" required></ion-input>
+      </ion-item>
+      <ion-item class="borde">
+        <ion-label><ion-icon name="key"></ion-icon></ion-label>
+        <ion-input placeholder="Contraseña" type="password" [(ngModel)]="login.password" name="password" required></ion-input>
+      </ion-item> 
+       <button ion-button full class="btn_azul"> INICIAR SESIÓN</button>
+    </ion-list>
+  </form>  
+</ion-content>

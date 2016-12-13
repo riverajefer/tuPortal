@@ -1,0 +1,74 @@
+<ion-header>
+  <ion-navbar>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <div class="logo_portal">
+      <img src="assets/images/tuportal.png" alt="Tu Portal">
+  </div> 
+
+  <div class="box_cotizador">
+    <ion-grid>
+      <ion-row>
+        <ion-col width-10>
+            <ion-icon name="cart" class="icon_box"></ion-icon>
+        </ion-col>
+        <ion-col width-90>
+            <p class="p_box">COTIZADOR <br> DE FAMILIARES </p>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </div>  
+
+<ion-list radio-group class="lista_gris">
+  <ion-list-header>
+    <h1 class="titulo">USUARIOS</h1>
+  </ion-list-header>
+
+  <ion-item>
+    <ion-label>
+      <img src="assets/images/user1.png" alt="">
+      <span>1 usuario</span><br>
+    </ion-label>
+    <ion-radio checked="true" value="1" (click)="usuarios = 1"></ion-radio>
+  </ion-item>
+
+  <ion-item>
+    <ion-label>
+      <img src="assets/images/user2.png" alt="">
+      <span>2 usuarios</span>
+    </ion-label>
+    <ion-radio value="2" (click)="usuarios = 2" ></ion-radio>
+  </ion-item>
+
+  <ion-item>
+    <ion-label>
+      <img src="assets/images/user3.png" alt="">
+      <span>3 ó más usuarios</span> 
+    </ion-label>
+    <ion-radio value="3" (click)="tresOmas()"></ion-radio>
+  </ion-item>
+
+  <div [hidden]="!showMas">
+    <ion-grid>
+    <ion-row>
+      <ion-col width-40>
+        <button ion-button class="btnUser" (click)="less()" >-</button>
+      </ion-col>
+      <ion-col width-20>
+        <ion-input type="number" value="{{usuarios}}" class="inputUser" [(ngModel)]="usuarios"></ion-input>
+      </ion-col>
+      <ion-col width-40>
+        <button ion-button class="btnUser" (click)="add()">+</button>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</div>
+
+
+</ion-list>
+
+<button ion-button full class="btn_azul" (click)="siguiente()"> SIGUIENTE </button>
+
+</ion-content>

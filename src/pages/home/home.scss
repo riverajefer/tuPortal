@@ -1,0 +1,30 @@
+page-home {
+
+    @include gradiente();
+
+    .logo_emer{
+        text-align: center;
+        margin: 25% 0px;
+        img{
+            width: 80%;
+        }
+    }
+    .logo_portal{
+        text-align: center;
+        margin-top: 30%;
+        img{
+            width: 70%;
+        }        
+    } 
+    .bt_home{
+        margin-top: 7px;
+        background-color: $rojo_emer;
+        text-transform: inherit;
+        font-size: 31px;
+        padding: 28px 0px;
+        font-family: $font-emer-light;
+    }   
+}
+.content-md{
+    background-color: transparent;
+}

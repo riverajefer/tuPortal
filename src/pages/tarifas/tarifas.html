@@ -1,0 +1,146 @@
+<ion-header>
+  <ion-navbar>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <div class="logo_portal">
+      <img src="assets/images/tuportal.png" alt="Tu Portal">
+  </div> 
+
+  <div class="box_cotizador">
+    <ion-grid>
+      <ion-row>
+        <ion-col width-10>
+            <ion-icon name="cart" class="icon_box"></ion-icon>
+        </ion-col>
+        <ion-col width-90>
+            <p class="p_box">COTIZADOR <br> DE FAMILIARES </p>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </div>
+
+  <!-- Inicio Tab segmen -->    
+  <ion-segment [(ngModel)]="selectedSegment" >
+    
+		<ion-segment-button *ngFor="let item of lista_modalidadPago" value="item.id" [class.activated]="selectedSegment==item.id" class="firstBtn" (click)="onSegmentChanged(item.id, item.modalidad)">
+			<div>
+					<img src="assets/images/{{item.imgModalidad}}" alt="{{item.modalidad}}">
+					<p>{{item.textModalidad}}</p>
+			</div>
+    </ion-segment-button>
+
+  </ion-segment>  
+
+<ion-slides #mySlider (ionDidChange)="onSlideChanged($event)" [options]="mySlideOptions">
+
+  <ion-slide  *ngFor="let modalidad of lista_modalidadPago">
+		<ion-list radio-group class="lista_gris">
+			<ion-item *ngFor="let item of lista_formaValor">
+				<ion-label>
+					<ion-grid>
+						<ion-row>
+							<ion-col width-50 class="tiempo">{{ item.formaPago }}</ion-col>
+							<ion-col width-50 class="valor">$ {{ item.valor }}</ion-col>
+						</ion-row>
+					</ion-grid>
+				 </ion-label>
+				<ion-radio value="{{ item.formaPago }}" (click)="seleccion(item.formaPago, item.valor, modalidad.modalidad)"></ion-radio>
+			</ion-item>
+		</ion-list>
+  </ion-slide>  
+
+</ion-slides> 
+<div [hidden]="!showResul">
+
+<ion-grid>
+  <ion-row>
+    <ion-col width-50>
+			<div class="opt_titulo">
+				<h2>OPCIONES <br> ELEGIDAS</h2>
+			</div>
+			<div class="opt_list">
+				<h3> {{ campania }} </h3>
+				<h3> {{ formaPago }} </h3>
+				<h3>$ {{ valorTarifa  }}</h3>
+				<img src="assets/images/icon_credit.png" alt="Credito" width="30px">
+				<p class="tarjeta_text">
+					{{modalidadPago}}
+				</p>
+				<p class="opt_users">
+					<span> {{usuarios}} </span> usuarios
+				</p>
+			</div>
+		</ion-col>
+
+		<ion-col width-50>
+			<div class="descuento">
+				<h3>10% de descuento sobre tarifa plena</h3>
+				<h2>-11.90%</h2>	
+			</div>
+			<div class="ahorro">
+				<p>Ahorro al año</p>
+				<h2>$63.000</h2>
+			</div>
+
+		</ion-col>
+  </ion-row>
+</ion-grid>
+
+<div class="footer">
+	<p class="liqui">
+		LIQUIDACIÓN DE CUOTAS PERIÓDICAS EN EL FORMULARIO**
+	</p>
+
+<ion-grid>
+  <ion-row>
+    <ion-col width-50 class="sinIva">
+			<p>
+				Valor cuota mes sin IVA* <br>
+				<span>$37.000</span>
+			</p>
+		</ion-col>
+		<ion-col width-50 class="iva">
+			<p>
+				IVA<br>
+				<span>$1.850</span>
+			</p>
+		</ion-col>
+  </ion-row>
+</ion-grid>
+<br>
+<div>
+	<ion-grid>
+		<ion-row class="total_pagar">
+			<ion-col width-50>
+				<p class="total_titulo">Total a pagar</p>
+			</ion-col>
+			<ion-col width-50>
+				<h3 class="total_valor">$38.850</h3>
+			</ion-col>
+		</ion-row>
+	</ion-grid>	
+</div>
+
+<div class="notas">
+	<p>
+		*Coloca el “Valor cuota mes sin IVA” en la sección de “Beneficiarios” en la columna con el mismo nombre del formulario de solicitud.
+	</p>
+	<p>
+		**Escribe esta liquidación en la sección “LIQUIDACIÓN DE CUOTAS PERIÓDICAS PARA PAGO ANTICIPADO EN EL 1er AÑO” del formulario de solicitud.
+	</p>
+</div>    	
+
+</div>
+
+
+</div>
+
+<!--
+<p>
+	<sup>*</sup> Tarifas por mes antes de IVA por persona. <br>
+	<sup>*</sup> Aplica únicamente para afiliados nuevos a contrato familiares.
+</p>
+-->
+</ion-content>

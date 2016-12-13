@@ -1,0 +1,199 @@
+page-tarifas {
+
+    @include gradiente();
+    text-align: center;
+
+    .logo_portal{
+        text-align: center;
+        margin-top: 2%;
+        img{
+            width: 50%;
+        }        
+    }
+    .box_cotizador{
+        @include boxCotizador();
+    }
+
+    ion-slide {
+        align-items: flex-start !important;
+    }
+    ion-slides{
+        height: auto;
+    }
+
+    .segment-md .segment-button.activated, .segment-md .segment-button.segment-activated{
+        background-color: #acb2b6 !important;
+    }
+    .radio-md .radio-inner{
+        background-color: #af0c14;
+    }        
+
+    .tiempo{
+        color:$azul_claro !important;
+        font-family: $font-emer-light;
+    }
+    .valor{
+        color:$azul_claro;
+        font-family: $font-emer-bold;            
+    }   
+
+    .lista_gris{
+        background-color: #cacfd1;
+    }     
+    .item-md{
+        background-color: transparent;
+        font-size: 1em;
+        height: 45px;
+    }
+
+    .list-md .item-block .item-inner {
+        border-bottom: 1px inset #a3abad;
+    }
+
+    ion-segment{
+        background-color: #d2d7d9;
+        margin-top: 5px; 
+        .firstBtn, .secondBtn{
+            border-right: 1px inset #878e91 !important; 
+        }
+
+
+
+        ion-segment-button{
+            height: 90px !important;
+            line-height: 7px !important;
+            img{
+                padding-top: 5px;
+            }
+            p{
+                color:$azul_claro;
+                font-family: $font-emer-light;
+                font-size: 10px;
+            } 
+
+        }
+    }
+
+    .opt_titulo{
+        background-color: #003c72;
+        padding: 8px 0px 1px 0px;
+        margin-bottom: 20px;
+        h2{
+            color: #fff;
+            font-size: 1.1em;
+            line-height: 18px;
+        }
+
+    }
+    .opt_list{
+        p, h3{
+            color:$azul_claro;
+        }
+        h3{
+            font-size: 1.3em;
+            line-height: 15px;
+            font-family: $font-emer-regular;            
+        }
+        .tarjeta_text{
+            line-height: 0px;
+            padding: 0px;
+            margin: 10px 0px;
+            font-size: 0.8em;
+        }
+        
+        p{
+            font-family: $font-emer-light;            
+        }
+        .opt_users{
+            font-family: $font-emer-regular;
+            span{
+                font-size: 1.7em;
+                font-family: $font-emer-bold; 
+            }
+        }
+    }
+    ion-col{
+        padding: 1px;
+    }
+    .descuento{
+        padding: 30px 5px;
+        background-color: #003c72;
+        h3{
+            color: #fff;
+            font-family: $font-emer-light;
+            font-size: 1.2em;
+            padding: 0px; 
+            margin:0px;
+        }
+        h2{
+            color: #fff;
+            font-family: $font-emer-regular; 
+            font-size: 1.7em;
+            padding: 0px;
+            margin:0px;
+        }
+    }
+    .ahorro{
+        background-color: #0166b3;
+        padding: 15px 5px;
+        p{
+            color: #fff;
+            font-family: $font-emer-light;
+            font-size: 1.3em;
+            line-height: 0px; 
+        }
+        h2{
+            color: #fff;
+            font-family: $font-emer-regular; 
+            font-size: 1.7em;
+        }
+    }
+
+    .footer{
+        .liqui{
+            color: $azul_claro;
+            font-family: $font-emer-bold;
+
+        }
+        .sinIva{
+            border-right: 1px solid #bcc1c3;
+        }
+        .sinIva, .iva{
+            color: $azul_claro;
+            p{
+                font-family: $font-emer-light;
+                span{
+                    font-family: $font-emer-bold;
+                }
+            }
+        }
+        .total_pagar{
+            background-color: $rojo_emer;
+            color: #fff;
+            border-radius: 15px;
+            font-family: $font-emer-light;
+
+        }
+        .total_titulo{
+            font-family: $font-emer-regular; 
+            font-size: 1.3em;
+        }
+        .total_valor{
+            padding: 20px 0px;
+            line-height: 17px;
+            margin: 0px;
+            font-family: $font-emer-bold;
+        }
+        .notas{
+            p{
+                color: #231f20;
+                font-size: 11px;
+                font-family: $font-emer-light;
+
+            }
+        }
+
+    }
+
+
+}

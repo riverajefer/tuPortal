@@ -1,0 +1,69 @@
+page-login {
+    text-align: center;
+    @include gradiente();
+
+    .logo_portal{
+        text-align: center;
+        margin-top: 5%;
+        img{
+            width: 70%;
+        }        
+    } 
+    p{
+        //font-family: $font-emer-light;
+        font-family: $font-emer-regular;
+        color: $azul_claro;
+        font-size: 18px;
+        margin: 15% 0% 10% 0%;
+    }
+    form{
+
+        border-radius: 15px;
+        padding: 20px;
+        border: 1px solid #ccc;
+
+        @include gradienteForm();
+        .list-md > .item-block:first-child, .list-md > .item-wrapper:first-child .item-block{
+            border: 1px solid #6f7b7e;
+        }
+        .list-md > .item-block:last-child, .list-md > .item-wrapper:last-child .item-block{
+            border: 1px solid #6f7b7e;
+        }
+        .borde{
+            @include gradienteInput();
+            border-radius: 20px;
+            margin: 20px 0px;
+            border: 1px solid transparent;
+            border-top: none;
+            border-bottom: 1px solid #DDD;
+            box-shadow: inset 0 1px 2px rgba(0,0,0,.39), 0 -1px 1px #FFF, 0 1px 0 #FFF;
+            outline: 0;
+
+            ion-label{
+                @include gradienteLabel();
+                color: #999;
+                padding: 15px 0px;
+                width: 61px;
+                height: 60px;
+                text-align: center;
+                margin: 0px -16px;
+                border-top-left-radius: 20px;
+                border-bottom-left-radius: 20px;
+                z-index: 9999;
+                position: absolute;
+                font-size: 25px;
+                border-right: 1px solid #6f7b7e;
+            }
+            ion-input{
+                padding-left: 50px;
+                @include gradienteInput();
+                font-size: 18px;
+                color:#6f7b7e;
+                font-family: $font-emer-light;
+            }
+        }
+        .btn_azul{
+            @include btnAzul();
+        }
+    }
+}

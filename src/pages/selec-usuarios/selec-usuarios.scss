@@ -1,0 +1,72 @@
+page-selec-usuarios {
+
+    @include gradiente();
+    text-align: center;
+
+    .logo_portal{
+        text-align: center;
+        margin-top: 3%;
+        img{
+            width: 50%;
+        }        
+    }
+    .box_cotizador{
+        @include boxCotizador();
+    }
+    .titulo{
+        color: $azul_claro;
+        font-family: $font-emer-bold;
+        font-size: 17px;
+        padding: 10px 0px;
+    }
+    .lista_gris{
+        //margin-top: 10%;
+        background-color: #cdd3d5;
+        border-radius: 15px;
+        border: 1px solid #9da5a8; 
+        ion-item{
+            margin-bottom: 5px;
+            padding-bottom: 10px;
+            border-bottom: 3px inset #a9b1b3;
+            ion-label span{
+                color: $azul_claro;
+                font-family: $font-emer-regular;
+            }
+        }
+        .list-header-md, .list-md ion-item-divider {
+            border-bottom: 3px inset #a9b1b3;
+        }
+
+    }
+    .item-md{
+        background-color: transparent;
+        font-size: 1em;
+        height: 45px;
+    }
+    .btn_azul{
+        @include btnAzul();
+    }        
+
+    .radio-md .radio-inner {
+        background-color: #af0c14;
+    }
+    .btnUser{
+        border-radius: 10px;
+        border: 1px solid #b8babb;
+        @include gradienteBtnUSer();
+        color: #003c72;
+        font-weight: bold;
+    }
+    .inputUser{
+        padding-left: 14px;
+        text-align:cnter;
+        border: 1px solid #95999a;
+        border-radius: 10px;
+        font-family: $font-emer-bold;
+        @include gradienteInput();
+        font-size: 18px;
+        color:#003c72;
+        font-family: $font-emer-light;        
+    }
+
+}
