@@ -22,7 +22,7 @@ export class TarifasPage {
   tarifa:string;
   campania:string;
   formaPago:string;
-  valorTarifa:string;  
+  valorTarifa:number;  
   usuarios:number;
   //ciudad:string = "Bogotá";
   ciudad:string;
@@ -180,6 +180,26 @@ export class TarifasPage {
     this.valorTarifa = valor;
     console.log("modalidad: ", modalidad);
     this.modalidadPago = modalidad;
+
+
+    this.sql.getTarifaPlena(this.ciudad).then(resp=>{
+      console.log("Res TARIFA_PLENA: ", resp.res.rows.item(0).TARIFA_PLENA);
+      let valorTarifaPlena = resp.res.rows.item(0).TARIFA_PLENA;
+      let porcentajeAhorro = ( ( this.valorTarifa/(valorTarifaPlena-1) )*-1)*100;
+      console.log("porcentajeAhorro: ", porcentajeAhorro);
+    });
+
+/*
+El porcentaje del ahorro corresponde a:
+
+(El valor de tarifa seleccionada/valor de la tarifa plena-1)*- 1)*100
+
+((@I_VALOR_TARIFA/@VALOR_TARIFA_PLENA-1)*-1)*100
+*/
+
+
+
+
 
   }
 

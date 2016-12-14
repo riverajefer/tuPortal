@@ -37,6 +37,10 @@ export class Sql {
             console.error('Storage: Unable to create initial storage tables', err.tx, err.err);
         });
 
+        this.query('CREATE TABLE IF NOT EXISTS TarifaPlena (key text primary key, CIUDAD text, TARIFA_PLENA text )').catch(err =>{
+            console.error('Storage: Unable to create initial storage tables', err.tx, err.err);
+        });
+
     }
 
     /**
@@ -109,6 +113,17 @@ export class Sql {
        return this.query('SELECT * FROM Tarifas');
     }
 
+    createTarifaPlena(TarifaPlena:any):Promise<any>{
+        let c = 1;
+        for (let tarifaPlena of TarifaPlena) {
+            this.query("INSERT OR REPLACE INTO TarifaPlena(key, CIUDAD, TARIFA_PLENA) VALUES ("+c+",'"+tarifaPlena.CIUDAD+"', '"+tarifaPlena.TARIFA_PLENA+"')").then(salida=>{
+            });
+            c++;
+        }
+        return this.query('SELECT * FROM TarifaPlena');
+    }
+
+
     getLengthRows():Promise<any>{
         return this.query('SELECT SUM(c) as count FROM (SELECT COUNT(*) AS c FROM Tarifas UNION ALL SELECT COUNT(*) FROM Usuarios); ');
     }
@@ -154,6 +169,9 @@ export class Sql {
     }
 
 
+    getTarifaPlena(ciudad:string):Promise<any>{
+        return this.query('SELECT *,rowid FROM TarifaPlena WHERE CIUDAD = ? ', [ciudad]);
+    }
 
 
     /**
@@ -183,6 +201,9 @@ export class Sql {
         this.query('DELETE FROM Tarifas');        
     }
 
+    clearTarifaPlena():void {
+        this.query('DELETE FROM TarifaPlena');        
+    }
     clearDropTarifas():void {
         //return this.query('delete from kv');
         this.query('DELETE FROM Tarifas');

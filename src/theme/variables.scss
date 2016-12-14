@@ -133,6 +133,10 @@ $font-emer-bold: 'Conv_TheSans_B6_SemiBold',Sans-Serif;
     background: none !important;
 }
 
+.header-md::after, .tabs-md[tabsPlacement="top"] > .tabbar::after, .footer-md::before, .tabs-md[tabsPlacement="bottom"] > .tabbar::before{
+    background-image: none !important;
+}
+
 
 
 // Named Color Variables
@@ -215,3 +219,5 @@ $ionicons-font-path: "../assets/fonts";
 	font-weight: normal;
 	font-style: normal;
 }
+
+

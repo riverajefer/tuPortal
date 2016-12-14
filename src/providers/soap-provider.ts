@@ -11,9 +11,15 @@ export class SoapProvider {
   URL:string = 'http://csemermedica.cloudapp.net:8080/EmermedicaWebService/WebServiceEmermedicaCotizador.asmx';
   body_users:string;
   body_tarifas:string;
+  body_tarifa_plena:string;
+
   constructor(public http: Http) {
+
     this.body_users = '<x:Envelope xmlns:x="http://schemas.xmlsoap.org/soap/envelope/" xmlns:tem="http://tempuri.org/"><x:Header><tem:AuthHeader><tem:Usuario>usuario</tem:Usuario><tem:Password>contrasena</tem:Password></tem:AuthHeader></x:Header><x:Body><tem:ConsultaUsuarios/></x:Body></x:Envelope>';
+
     this.body_tarifas = '<x:Envelope xmlns:x="http://schemas.xmlsoap.org/soap/envelope/" xmlns:tem="http://tempuri.org/"><x:Header><tem:AuthHeader><tem:Usuario>usuario</tem:Usuario><tem:Password>contrasena</tem:Password></tem:AuthHeader></x:Header><x:Body><tem:ConsultaTarifasCampanas><tem:ciudad>Cali</tem:ciudad></tem:ConsultaTarifasCampanas></x:Body></x:Envelope>';
+
+    this.body_tarifa_plena = '<x:Envelope xmlns:x="http://schemas.xmlsoap.org/soap/envelope/" xmlns:tem="http://tempuri.org/"><x:Header><tem:AuthHeader><tem:Usuario>usuario</tem:Usuario><tem:Password>contrasena</tem:Password></tem:AuthHeader></x:Header><x:Body><tem:ConsultaTarifaPlena><tem:Ciudad></tem:Ciudad></tem:ConsultaTarifaPlena></x:Body></x:Envelope>';    
   
 }
 
@@ -36,6 +42,10 @@ export class SoapProvider {
     return this.http.post(this.URL, this.bodyTarifas(ciudad), {headers: headers}).map(this.extractDataSoap).catch(this.handleError); 
   }
 
+  getTarifaPlenaSOAP():any{
+    let headers = new Headers({ 'Content-Type': 'text/xml; charset=utf-8', 'SOAPAction':'http://tempuri.org/ConsultaTarifaPlena' });
+    return this.http.post(this.URL, this.body_tarifa_plena, {headers: headers}).map(this.extractDataSoap).catch(this.handleError); 
+  }
 
   private extractDataSoap(res: Response){
       let body = res;

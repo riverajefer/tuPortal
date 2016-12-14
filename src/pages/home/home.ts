@@ -62,6 +62,7 @@ export class HomePage {
 
   clearData(){
     this.sql.clearUsers();
+    this.sql.clearTarifaPlena();
   }
 
   msgAlert() {
@@ -90,8 +91,21 @@ export class HomePage {
 
       //alert(JSON.stringify(resulUsers, null, 4));
 
-      this.sql.createUser(resulUsers);
 
+      // Descarga y Carga tarifa plena
+      this.soapProvider.getTarifaPlenaSOAP().subscribe(salida=>{
+
+        let jsonObjTPlena = this.x2.xml_str2json( salida._body );
+        let resulTarifaPena = jsonObjTPlena.Envelope.Body.ConsultaTarifaPlenaResponse.ConsultaTarifaPlenaResult.CTSP_CONSULTA_CTB_TARIFA_PLENA_Result
+        
+        this.sql.createTarifaPlena(resulTarifaPena).then(resp=>{
+          console.log("registro Tarifa plena: ", resp);
+        });
+
+      });
+
+      // Carga Usuarios
+        
       this.sql.createUser(resulUsers).then(resp=>{
         console.log("registro: ", resp);
         this.disabled = false;
