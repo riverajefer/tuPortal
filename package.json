@@ -32,7 +32,7 @@
   },
   "devDependencies": {
     "@ionic/app-scripts": "^0.0.36",
-    "typescript": "^2.0.3"
+    "typescript": "^2.0.10"
   },
   "description": "tuPortal: An Ionic project",
   "cordovaPlugins": [

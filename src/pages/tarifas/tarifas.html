@@ -46,7 +46,7 @@
 						</ion-row>
 					</ion-grid>
 				 </ion-label>
-				<ion-radio value="{{ item.formaPago }}" (click)="seleccion(item.formaPago, item.valor, modalidad.modalidad)"></ion-radio>
+				<ion-radio value="{{ item.formaPago }}" (click)="seleccion(item.formaPago, item.valor, modalidad.modalidad, item.IvaTarifa)"></ion-radio>
 			</ion-item>
 		</ion-list>
   </ion-slide>  
@@ -77,11 +77,12 @@
 		<ion-col width-50>
 			<div class="descuento">
 				<h3>10% de descuento sobre tarifa plena</h3>
-				<h2>-11.90%</h2>	
+				<h2>-11.90%</h2>
+				<h2>{{porcentajeAhorro}}%</h2>	
 			</div>
 			<div class="ahorro">
 				<p>Ahorro al año</p>
-				<h2>$63.000</h2>
+				<h2>$ {{ahorroAnio}}</h2>
 			</div>
 
 		</ion-col>
@@ -98,13 +99,13 @@
     <ion-col width-50 class="sinIva">
 			<p>
 				Valor cuota mes sin IVA* <br>
-				<span>$37.000</span>
+				<span>$ {{cuotaMes}} </span>
 			</p>
 		</ion-col>
 		<ion-col width-50 class="iva">
 			<p>
 				IVA<br>
-				<span>$1.850</span>
+				<span>$ {{IVATarifa}}</span>
 			</p>
 		</ion-col>
   </ion-row>
@@ -117,7 +118,7 @@
 				<p class="total_titulo">Total a pagar</p>
 			</ion-col>
 			<ion-col width-50>
-				<h3 class="total_valor">$38.850</h3>
+				<h3 class="total_valor">$ {{TotalAPagar}}</h3>
 			</ion-col>
 		</ion-row>
 	</ion-grid>	

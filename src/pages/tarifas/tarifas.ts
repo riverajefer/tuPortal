@@ -24,7 +24,6 @@ export class TarifasPage {
   formaPago:string;
   valorTarifa:number;  
   usuarios:number;
-  //ciudad:string = "Bogotá";
   ciudad:string;
   modalidadPago:string;
   lista_modalidadPago = [];
@@ -34,6 +33,18 @@ export class TarifasPage {
   textModalidad:string;
   showResul:Boolean=false;
   rango:string;
+
+  /**
+   * Variables Resultados */
+  porcentajeAhorro:number;
+  ahorroAnio:number;
+  cuotaMes:number;
+  valorIVA:number;
+  TotalAPagar:number;
+  IVATarifa:number;
+  
+
+
   
 
   constructor(private navCtrl: NavController, public navParams: NavParams, private sql: Sql) {
@@ -104,6 +115,7 @@ export class TarifasPage {
               this.lista_formaValor.push({
                   formaPago: salida.res.rows.item(i).FORMA_PAGO,
                   valor:salida.res.rows.item(i).VALOR_TARIFA,
+                  IvaTarifa:salida.res.rows.item(i).VALOR_IVA_TARIFA,
               });
 
            }
@@ -142,6 +154,7 @@ export class TarifasPage {
     console.log('Slide changed', slider);
     
     const currentSlide = this.lista_modalidadPago[slider.activeIndex];
+    console.log("currentSlide: ",currentSlide.modalidad)
     console.log("currentSlide Mo: ",currentSlide.modalidad)
     this.selectedSegment = currentSlide.id;
 
@@ -165,14 +178,11 @@ export class TarifasPage {
            this.valorTarifa = resPagoTarifa.VALOR_TARIFA;
            console.log("Forma Pago ",   this.formaPago);
            console.log("Valor Tarifa ", this.valorTarifa);
-
          });
 
-
-    ///console.log("Current index s2", currentSlide.id);
   }  
 
-  seleccion(formaPago, valor, modalidad){
+  seleccion(formaPago, valor, modalidad, IvaTarifa){
     this.showResul = true;
     console.log("formaPago: ", formaPago);
     this.formaPago = formaPago;
@@ -185,21 +195,42 @@ export class TarifasPage {
     this.sql.getTarifaPlena(this.ciudad).then(resp=>{
       console.log("Res TARIFA_PLENA: ", resp.res.rows.item(0).TARIFA_PLENA);
       let valorTarifaPlena = resp.res.rows.item(0).TARIFA_PLENA;
-      let porcentajeAhorro = ( ( this.valorTarifa/(valorTarifaPlena-1) )*-1)*100;
-      console.log("porcentajeAhorro: ", porcentajeAhorro);
+
+      this.porcentajeAhorro = ( ( this.valorTarifa/(valorTarifaPlena-1) )*-1)*100;
+      console.log("porcentajeAhorro: ", this.porcentajeAhorro);
+
+      this.porcentajeAhorro =  Math.round(this.porcentajeAhorro * 100) / 100;
+
+      this.ahorroAnio = (valorTarifaPlena*12)-(valor*12);
+
+      this.cuotaMes = valor*this.usuarios;
+
+      this.IVATarifa = IvaTarifa*this.usuarios;
+
+      this.TotalAPagar = this.cuotaMes + this.IVATarifa;
+
     });
 
 /*
-El porcentaje del ahorro corresponde a:
 
-(El valor de tarifa seleccionada/valor de la tarifa plena-1)*- 1)*100
-
+El porcentaje del ahorro corresponde a: 
+(El valor de tarifa seleccionada/valor de la tarifa plena-1)*-1)*100
 ((@I_VALOR_TARIFA/@VALOR_TARIFA_PLENA-1)*-1)*100
+El valor de la tarifa plena se obtiene del método----
+
+El valor del ahorro al año corresponde a :
+(El valor de la tarifa plena * 12) – (valor de la tarifa * 12)
+
+El valor de la cuanta mes sin IVA corresponde a:
+
+
+(El valor de la tarifa * el número de personas)
+
+El valor del IVA corresponde a:
+(El valor del IVA * el número de personas)
+El total a pagar corresponde a la suma de los dos valores anteriores.
+
 */
-
-
-
-
 
   }
 

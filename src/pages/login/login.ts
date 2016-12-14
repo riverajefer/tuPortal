@@ -86,7 +86,7 @@ export class LoginPage {
             this.clearData();
             this.registroData(ciudad);
             this.disabled = false;
-            //this.navCtrl.push(TipoTarifaPage, {ciudad: ciudad });
+           // this.navCtrl.push(TipoTarifaPage, {ciudad: ciudad });
           }
         }
     });
