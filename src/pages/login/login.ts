@@ -25,13 +25,13 @@ export class LoginPage {
     public soapProvider:SoapProvider,
     public loadingCtrl:LoadingController
     ) {
+    
     /*this.login = {
-    };*/
-    this.login = {
       user: 'admin',
       password: '123'
-    };
-    //this.login = {};
+    };*/
+    
+    this.login = {};
 
 
   }
@@ -76,17 +76,14 @@ export class LoginPage {
           console.log("Si hay registros");
           if (Network.connection === 'none') {
             this.disabled = false;
+            this.navCtrl.push(TipoTarifaPage, {ciudad: ciudad });
           }
           else{
             // si hay internet y DATA
-            
-            //////////////////////////////////////////////////////////////////////
-            /// Remover esto
-
             this.clearData();
             this.registroData(ciudad);
             this.disabled = false;
-           // this.navCtrl.push(TipoTarifaPage, {ciudad: ciudad });
+            //this.navCtrl.push(TipoTarifaPage, {ciudad: ciudad });
           }
         }
     });

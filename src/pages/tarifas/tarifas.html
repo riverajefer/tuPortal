@@ -42,7 +42,7 @@
 					<ion-grid>
 						<ion-row>
 							<ion-col width-50 class="tiempo">{{ item.formaPago }}</ion-col>
-							<ion-col width-50 class="valor">$ {{ item.valor }}</ion-col>
+							<ion-col width-50 class="valor">{{ item.valorShow }}</ion-col>
 						</ion-row>
 					</ion-grid>
 				 </ion-label>
@@ -54,22 +54,24 @@
 </ion-slides> 
 <div [hidden]="!showResul">
 
-<ion-grid>
+<ion-grid class="box_resultados">
   <ion-row>
     <ion-col width-50>
 			<div class="opt_titulo">
-				<h2>OPCIONES <br> ELEGIDAS</h2>
+				<h2>OPCIONES ELEGIDAS</h2>
 			</div>
 			<div class="opt_list">
 				<h3> {{ campania }} </h3>
 				<h3> {{ formaPago }} </h3>
-				<h3>$ {{ valorTarifa  }}</h3>
+				<h3> {{ valorTarifa  }}</h3>
 				<img src="assets/images/icon_credit.png" alt="Credito" width="30px">
 				<p class="tarjeta_text">
 					{{modalidadPago}}
 				</p>
 				<p class="opt_users">
-					<span> {{usuarios}} </span> usuarios
+					<span> {{usuarios}} </span> 
+					<span *ngIf="usuarios==1">Usuario</span> 
+					<span *ngIf="usuarios>1">Usuarios</span> 
 				</p>
 			</div>
 		</ion-col>
@@ -77,14 +79,12 @@
 		<ion-col width-50>
 			<div class="descuento">
 				<h3>10% de descuento sobre tarifa plena</h3>
-				<h2>-11.90%</h2>
 				<h2>{{porcentajeAhorro}}%</h2>	
 			</div>
 			<div class="ahorro">
 				<p>Ahorro al año</p>
-				<h2>$ {{ahorroAnio}}</h2>
+				<h2>{{ahorroAnio }}</h2>
 			</div>
-
 		</ion-col>
   </ion-row>
 </ion-grid>
@@ -99,18 +99,17 @@
     <ion-col width-50 class="sinIva">
 			<p>
 				Valor cuota mes sin IVA* <br>
-				<span>$ {{cuotaMes}} </span>
+				<span>{{cuotaMes }} </span>
 			</p>
 		</ion-col>
 		<ion-col width-50 class="iva">
 			<p>
 				IVA<br>
-				<span>$ {{IVATarifa}}</span>
+				<span>{{IVATarifa }}</span>
 			</p>
 		</ion-col>
   </ion-row>
 </ion-grid>
-<br>
 <div>
 	<ion-grid>
 		<ion-row class="total_pagar">
@@ -118,7 +117,7 @@
 				<p class="total_titulo">Total a pagar</p>
 			</ion-col>
 			<ion-col width-50>
-				<h3 class="total_valor">$ {{TotalAPagar}}</h3>
+				<h3 class="total_valor">{{ TotalAPagar }}</h3>
 			</ion-col>
 		</ion-row>
 	</ion-grid>	
@@ -134,7 +133,6 @@
 </div>    	
 
 </div>
-
 
 </div>
 

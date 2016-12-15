@@ -5,7 +5,7 @@ page-tarifas {
 
     .logo_portal{
         text-align: center;
-        margin-top: 2%;
+        margin-top: 0%;
         img{
             width: 50%;
         }        
@@ -45,6 +45,9 @@ page-tarifas {
         font-size: 1em;
         height: 45px;
     }
+    .list-md{
+        margin: 0px;
+    }
 
     .list-md .item-block .item-inner {
         border-bottom: 1px inset #a3abad;
@@ -52,36 +55,38 @@ page-tarifas {
 
     ion-segment{
         background-color: #d2d7d9;
-        margin-top: 5px; 
+        margin-top: 3px; 
         .firstBtn, .secondBtn{
             border-right: 1px inset #878e91 !important; 
         }
-
-
 
         ion-segment-button{
             height: 90px !important;
             line-height: 7px !important;
             img{
-                padding-top: 5px;
+                padding-top: 3px;
             }
             p{
                 color:$azul_claro;
                 font-family: $font-emer-light;
                 font-size: 10px;
             } 
-
         }
+    }
+    .box_resultados{
+        padding: 0px;
     }
 
     .opt_titulo{
         background-color: #003c72;
-        padding: 8px 0px 1px 0px;
-        margin-bottom: 20px;
+        padding: 11px;
+        margin-bottom: 12px;
         h2{
             color: #fff;
-            font-size: 1.1em;
-            line-height: 18px;
+            font-size: 1em;
+            padding: 0px;
+            margin: 0px;
+            letter-spacing: 1px;
         }
 
     }
@@ -90,14 +95,15 @@ page-tarifas {
             color:$azul_claro;
         }
         h3{
-            font-size: 1.3em;
+            font-size: 1em;
+            letter-spacing: 1px;
             line-height: 15px;
             font-family: $font-emer-regular;            
         }
         .tarjeta_text{
             line-height: 0px;
             padding: 0px;
-            margin: 10px 0px;
+            margin: 3px 0px;
             font-size: 0.8em;
         }
         
@@ -107,7 +113,7 @@ page-tarifas {
         .opt_users{
             font-family: $font-emer-regular;
             span{
-                font-size: 1.7em;
+                font-size: 1.4em;
                 font-family: $font-emer-bold; 
             }
         }
@@ -116,21 +122,23 @@ page-tarifas {
         padding: 1px;
     }
     .descuento{
-        padding: 30px 5px;
+        padding: 13px 6px;
         background-color: #003c72;
         h3{
             color: #fff;
             font-family: $font-emer-light;
-            font-size: 1.2em;
+            font-size: 1.1em;
+            letter-spacing: 1px;
             padding: 0px; 
             margin:0px;
         }
         h2{
             color: #fff;
             font-family: $font-emer-regular; 
-            font-size: 1.7em;
+            font-size: 1.5em;
+            letter-spacing: 1px;
             padding: 0px;
-            margin:0px;
+            margin: 5px 0px 0px 0px;
         }
     }
     .ahorro{
@@ -189,11 +197,7 @@ page-tarifas {
                 color: #231f20;
                 font-size: 11px;
                 font-family: $font-emer-light;
-
             }
         }
-
     }
-
-
 }

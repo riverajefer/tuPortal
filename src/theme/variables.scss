@@ -130,7 +130,8 @@ $font-emer-bold: 'Conv_TheSans_B6_SemiBold',Sans-Serif;
 }
 .toolbar-background-md {
     border-color: #b2b2b2;
-    background: none !important;
+    //background: none !important;
+    background: rgba(212,212,214,0.3) !important;
 }
 
 .header-md::after, .tabs-md[tabsPlacement="top"] > .tabbar::after, .footer-md::before, .tabs-md[tabsPlacement="bottom"] > .tabbar::before{
