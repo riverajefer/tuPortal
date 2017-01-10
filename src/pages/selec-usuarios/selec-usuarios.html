@@ -28,24 +28,24 @@
 
   <ion-item>
     <ion-label>
-      <img src="assets/images/user1.png" alt="">
+      <img src="assets/images/user1.png" alt="" height="35px">
       <span>1 usuario</span><br>
     </ion-label>
-    <ion-radio checked="true" value="1" (click)="usuarios = 1"></ion-radio>
+    <ion-radio checked="true" value="1" (click)="add1()"></ion-radio>
   </ion-item>
 
   <ion-item>
     <ion-label>
-      <img src="assets/images/user2.png" alt="">
+      <img src="assets/images/user2.png" alt="" height="35px">
       <span>2 usuarios</span>
     </ion-label>
-    <ion-radio value="2" (click)="usuarios = 2" ></ion-radio>
+    <ion-radio value="2" (click)="add2()" ></ion-radio>
   </ion-item>
 
   <ion-item>
     <ion-label>
-      <img src="assets/images/user3.png" alt="">
-      <span>3 ó más usuarios</span> 
+      <img src="assets/images/user3.png" alt="" height="35px">
+      <span>3 usuarios o mas</span> 
     </ion-label>
     <ion-radio value="3" (click)="tresOmas()"></ion-radio>
   </ion-item>

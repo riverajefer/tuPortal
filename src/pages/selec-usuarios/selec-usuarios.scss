@@ -16,22 +16,32 @@ page-selec-usuarios {
     .titulo{
         color: $azul_claro;
         font-family: $font-emer-bold;
-        font-size: 17px;
+        font-weight: bold;
+        font-size: 1.6em;
         padding: 10px 0px;
+        margin-top: 7px !important;
     }
     .lista_gris{
-        //margin-top: 10%;
+        border-bottom-right-radius: 15px;
+        border-bottom-left-radius: 15px;         
         background-color: #cdd3d5;
-        border-radius: 15px;
-        border: 1px solid #9da5a8; 
         ion-item{
             margin-bottom: 5px;
             padding-bottom: 10px;
             border-bottom: 3px inset #a9b1b3;
             ion-label span{
+                position: absolute;
+                top: 24%;
+                left: 24%;                
                 color: $azul_claro;
                 font-family: $font-emer-regular;
+                font-size: 1.3em;
             }
+        }
+        ion-item:last-of-type{
+            border: none;
+            border-bottom-right-radius: 15px;
+            border-bottom-left-radius: 15px;             
         }
         .list-header-md, .list-md ion-item-divider {
             border-bottom: 3px inset #a9b1b3;
@@ -47,9 +57,22 @@ page-selec-usuarios {
         @include btnAzul();
     }        
 
-    .radio-md .radio-inner {
-        background-color: #af0c14;
+    .radio-md .radio-checked {
+        border-color: #f4f4f4;
+        background-color: #DBE0E1;
     }
+    .radio-md .radio-icon{
+        width: 25px;
+        height: 25px;
+
+    }
+    .radio-md .radio-inner{
+        background-color: #a60a11;
+        top: 3px;
+        left: 3px;
+        width: 15px;
+        height: 15px;            
+    }  
     .btnUser{
         border-radius: 10px;
         border: 1px solid #b8babb;

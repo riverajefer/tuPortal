@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <widget id="com.ionicframework.tuportal131944" version="0.0.1" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
   <name>tuPortal</name>
-  <description>An awesome Ionic/Cordova app.</description>
-  <author email="hi@ionicframework" href="http://ionicframework.com/">Ionic Framework Team</author>
+  <description>Esta app te permite cotizar el plan integral, de una forma sencilla y eficiente.</description>
+  <author email="riverajefer@gmail.com" href="http://ionicframework.com/">Jefferson Rivera</author>
   <content src="index.html"/>
   <access origin="*"/>
   <allow-intent href="http://*/*"/>
@@ -45,8 +45,11 @@
   <preference name="SplashScreenDelay" value="0"/>
   <preference name="FadeSplashScreen" value="false"/>
   <preference name="FadeSplashScreenDuration" value="0"/>
-  <preference name="SplashScreenBackgroundColor" value="0xFFFFFFFF"/>
-  <preference name="SplashScreen" value="screen"/>
+  <preference name="ShowSplashScreenSpinner" value="false"/>
+  <preference name="AutoHideSplashScreen" value="false" />
+  <preference name="SplashScreenBackgroundColor" value="0xffffff"/>
+  <preference name="orientation" value="portrait" />
+  <preference name="SplashScreen" value="none"/>
   <feature name="StatusBar">
     <param name="ios-package" onload="true" value="CDVStatusBar"/>
   </feature>

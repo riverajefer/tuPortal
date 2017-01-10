@@ -97,7 +97,7 @@ $font-emer-bold: 'Conv_TheSans_B6_SemiBold',Sans-Serif;
     -moz-box-shadow: inset -15px -14px 34px -28px #ABABAB;
     -o-box-shadow: inset -15px -14px 34px -28px #ABABAB;
     height: 60px;
-    border-radius: 20px;
+    border-radius: 10px;
     .icon_box{
         color: #8c8d8e;
         font-size: 2.7em;
@@ -138,7 +138,9 @@ $font-emer-bold: 'Conv_TheSans_B6_SemiBold',Sans-Serif;
     background-image: none !important;
 }
 
-
+.toast-md .toast-message{
+    text-align: center;
+}
 
 // Named Color Variables
 // --------------------------------------------------

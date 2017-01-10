@@ -1,6 +1,6 @@
 import { Network } from 'ionic-native';
 import { Component } from '@angular/core';
-import { NavController, AlertController, LoadingController } from 'ionic-angular';
+import { NavController, AlertController, LoadingController, ToastController } from 'ionic-angular';
 import { TipoTarifaPage } from '../tipo-tarifa/tipo-tarifa';
 import { Sql } from "../../providers/Sql";
 import { SoapProvider } from '../../providers/soap-provider';
@@ -23,23 +23,28 @@ export class LoginPage {
     private sql: Sql, 
     public alertCtrl: AlertController,
     public soapProvider:SoapProvider,
-    public loadingCtrl:LoadingController
-    ) {
-    
-    /*this.login = {
-      user: 'admin',
-      password: '123'
-    };*/
-    
-    this.login = {};
+    public loadingCtrl:LoadingController,
+    public toastCtrl: ToastController
 
+    ) {
+
+  /* 
+     this.login = {
+      user: '558',
+      password: '558'
+    };
+    */
+  
+   this.login = {};
 
   }
 
   loginForm(event){
     event.preventDefault();
 
-    this.sql.login(this.login.user, this.login.password).then(salida=>{
+    let user =  this.login.user.toLowerCase();
+
+    this.sql.login(user, this.login.password).then(salida=>{
       console.log("salida login: ", salida.res.rows);
       let resLogin = salida.res.rows;
 
@@ -83,7 +88,9 @@ export class LoginPage {
             this.clearData();
             this.registroData(ciudad);
             this.disabled = false;
-            //this.navCtrl.push(TipoTarifaPage, {ciudad: ciudad });
+
+            //En Desarrollo
+           // this.navCtrl.push(TipoTarifaPage, {ciudad: ciudad });
           }
         }
     });
@@ -96,7 +103,6 @@ export class LoginPage {
     });
         
     this.loading.present();
-    console.log("ciuadad 2 ", ciudad)
 
     this.soapProvider.getTarifasPorCiudadSOAP(ciudad).subscribe(salida=>{
       let jsonObj = this.x2.xml_str2json( salida._body );
@@ -108,12 +114,11 @@ export class LoginPage {
         this.disabled = false;
         this.loading.dismiss();
 
-        let alert = this.alertCtrl.create({
-          subTitle: 'El contenido se descargo correctamente',
-          buttons: ['Ok']
+        let toast = this.toastCtrl.create({
+          message: 'El contenido se descargó correctamente',
+          duration: 3000
         });
-
-        alert.present();
+        toast.present();
         this.navCtrl.push(TipoTarifaPage, {ciudad: ciudad });
 
       });

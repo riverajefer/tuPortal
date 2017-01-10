@@ -28,6 +28,17 @@ export class SelectUsuariosPage {
     }
   }
 
+  add1(){
+    this.usuarios = 1;
+    this.showMas = false;
+  }
+
+  add2(){
+    this.usuarios = 2;
+    this.showMas = false;
+  }
+
+
   add(){
     ++this.usuarios;
   }
@@ -55,3 +66,4 @@ export class SelectUsuariosPage {
     alert.present();
   }    
 }
+

@@ -156,18 +156,19 @@ export class Sql {
         return this.query('SELECT MIN(RANGO_FINAL_PERSONA) as rango '+fw+' AND RANGO_FINAL_PERSONA BETWEEN ( CASE WHEN "'+usuarios+'" > (SELECT MAX(RANGO_FINAL_PERSONA) '+fw+') THEN (SELECT MAX(RANGO_FINAL_PERSONA) '+fw+' ) ELSE "'+usuarios+'" END) AND  (SELECT MAX(RANGO_FINAL_PERSONA) '+fw+')')       
     }
 
-    getModalidadPago(ciudad:string, tarifa:string, campania:string, rango:string):Promise<any>{
-        return this.query('SELECT  *, rowid FROM Tarifas WHERE CIUDAD = ? AND TIPO_TARIFA = ?  AND CAMPANA_TARIFA = ? AND ID_ESTADO = ?  GROUP BY MODALIDAD_PAGO  ', [ciudad, tarifa, campania, 1])
+    getModalidadPago(ciudad:string, tarifa:string, campania:string):Promise<any>{
+        return this.query('SELECT  *, rowid FROM Tarifas WHERE CIUDAD = ? AND TIPO_TARIFA = ?  AND CAMPANA_TARIFA = ? AND ID_ESTADO = ?  GROUP BY MODALIDAD_PAGO ORDER BY rowid DESC  ', [ciudad, tarifa, campania, 1])
     }
 
-    getModalidadPagoO(ciudad:string, tarifa:string, campania:string, rango:string):Promise<any>{
-        return this.query('SELECT  MODALIDAD_PAGO, rowid FROM Tarifas WHERE CIUDAD = ? AND TIPO_TARIFA = ?  AND CAMPANA_TARIFA = ? AND ID_ESTADO = ? AND RANGO_FINAL_PERSONA = ? GROUP BY MODALIDAD_PAGO ', [ciudad, tarifa, campania, 1, rango])
-    }
 
     getPagoTarifa(ciudad:string, tarifa:string, campania:string, rango:string,  modalidad:string):Promise<any>{
         return this.query('SELECT *,rowid FROM Tarifas WHERE CIUDAD = ? AND TIPO_TARIFA = ?  AND CAMPANA_TARIFA = ? AND ID_ESTADO = ? AND RANGO_FINAL_PERSONA = ? AND MODALIDAD_PAGO = ?   GROUP BY FORMA_PAGO ', [ciudad, tarifa, campania, 1, rango, modalidad]);
     }
 
+
+    getPagoTarifas(ciudad:string, tarifa:string, campania:string, modalidad:string, usuarios:number):Promise<any>{
+        return this.query('SELECT *,rowid FROM Tarifas WHERE CIUDAD = ? AND TIPO_TARIFA = ?  AND CAMPANA_TARIFA = ? AND ID_ESTADO = ? AND MODALIDAD_PAGO = ? AND  '+ usuarios +'  BETWEEN RANGO_INICIAL_PERSONA AND RANGO_FINAL_PERSONA  GROUP BY FORMA_PAGO ', [ciudad, tarifa, campania, 1, modalidad]);
+    }
 
     getTarifaPlena(ciudad:string):Promise<any>{
         return this.query('SELECT *,rowid FROM TarifaPlena WHERE CIUDAD = ? ', [ciudad]);

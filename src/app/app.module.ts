@@ -6,9 +6,7 @@ import { LoginPage } from '../pages/login/login';
 import { TipoTarifaPage } from '../pages/tipo-tarifa/tipo-tarifa';
 import { SelectUsuariosPage } from '../pages/selec-usuarios/selec-usuarios';
 import { TarifasPage } from '../pages/tarifas/tarifas';
-import {Sql} from "../providers/Sql";
-import { CapitalizePipe } from './capitalize.pipe';
-import { MoneyPipe } from './Money.pipe';
+import { Sql } from "../providers/Sql";
 
 
 @NgModule({
@@ -18,9 +16,7 @@ import { MoneyPipe } from './Money.pipe';
     LoginPage,
     TipoTarifaPage,
     SelectUsuariosPage,
-    TarifasPage,
-    CapitalizePipe,
-    MoneyPipe 
+    TarifasPage
   ],
   imports: [
     IonicModule.forRoot(MyApp)

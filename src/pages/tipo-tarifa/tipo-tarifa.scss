@@ -1,4 +1,9 @@
 page-tipo-tarifa {
+
+    .label-md{
+        margin: 20px 8px 13px 0;
+    }
+
     @include gradiente();
     text-align: center;
 
@@ -12,24 +17,31 @@ page-tipo-tarifa {
     .box_cotizador{
         @include boxCotizador();
     }
+    .selec_tarifa{
+        border: none;
+       ion-item-divider:last-of-type{
+            border:none;
+            border-radius:0px;
+        }        
+    }
 
     .lista_gris{
-        //margin-top: 10%;
         background-color: #cdd3d5;
-        border-top-left-radius: 15px;
-        border-top-right-radius: 15px;
-        border: 1px solid #ccc;
+        margin: 0 auto;
+        width: 99%;
+        border-bottom-right-radius: 15px;
+        border-bottom-left-radius: 15px;   
         
         ion-list-header{
             background-color: #cdd3d5;
-            border-top-left-radius: 15px;
-            border-top-right-radius: 15px;
+            height: 65px;
         }
 
         .titulo{
             color: $azul_claro;
             font-family: $font-emer-bold;
-            font-size: 19px;
+            font-weight: bold;
+            font-size: 1.6em;
             padding: 10px 0px;
             margin: 0px;
         }
@@ -38,15 +50,19 @@ page-tipo-tarifa {
             background-color: #cdd3d5;
             border-bottom: 3px inset #a9b1b3;
             color: $azul_claro;
-            font-family: $font-emer-regular;
-            font-size: 1.2em;
+            font-size: 1.1em;
             ion-icon{
                 color: #aeb4b8;
-                font-size: 2em;
+                font-size: 2.1em;
                 font-weight: bold;
                 border-left: 1px outset #aeb4b8;
                 padding-left: 20px; 
+                margin-right: 21px !important;
             }            
+        }
+        ion-item-divider:last-of-type{
+            border-bottom-right-radius: 15px;
+            border-bottom-left-radius: 15px;            
         }
         ion-item{
             @include gradienteIonItem();
@@ -55,13 +71,23 @@ page-tipo-tarifa {
         
         .item-radio-checked.item-md ion-label{
             color: #FFF;
-            font-family: $font-emer-bold;
+          //  font-family: $font-emer-bold;
         }
         .radio-md .radio-checked {
             border-color: #f4f4f4;
+            background-color: #DBE0E1;
+        }
+        .radio-md .radio-icon{
+            width: 25px;
+            height: 25px;
+
         }
         .radio-md .radio-inner{
             background-color: #a60a11;
+            top: 3px;
+            left: 3px;
+            width: 15px;
+            height: 15px;            
         }        
         .list-header-md, .list-md ion-item-divider {
             border-bottom: 3px inset #a9b1b3;

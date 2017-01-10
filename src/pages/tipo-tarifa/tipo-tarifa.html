@@ -28,31 +28,20 @@
     <h1 class="titulo">TIPO DE TARIFA</h1>
   </ion-list-header>
 
-  <ion-item-group *ngFor="let item of Tarifas">
+  <ion-item-group *ngFor="let item of Tarifas" class="{{ ! lista_estado[item.id] ? 'selec_tarifa' : 'no_selec_tarifa' }}">
 
-    <ion-item-divider text-left (click)="toggle(item)">
+    <ion-item-divider text-left (click)="toggle(item)" >
       {{item.Tarifa | uppercase}}
-      <ion-icon name="{{ lista_estado[item.id] ? 'arrow-dropup' : 'md-arrow-dropdown' }}" item-right></ion-icon>
+      <ion-icon name="{{ lista_estado[item.id] ? 'arrow-dropdown' : 'md-arrow-dropdown' }}" item-right></ion-icon>
     </ion-item-divider>
 
     <ion-item [hidden]="lista_estado[item.id]" *ngFor="let campania of lista_campanias[item.id]" >  
       <ion-label>{{campania.Campania | uppercase }}</ion-label>
       <ion-radio [value]="campania.Campania" (click)="selectCampania(item.Tarifa, campania.Campania)"></ion-radio>
     </ion-item>
-    
   </ion-item-group>
 
 </ion-list>
-
-<ion-card [hidden]="!showSeleccion">
-  <ion-card-header>
-    Selección
-  </ion-card-header>
-  <ion-card-content>
-    <p> <b>Tipo de tarifa:</b> {{select_tarifa}} </p>
-    <p> <b>Campaña:</b> {{select_campania}} </p>
-  </ion-card-content>
-</ion-card>
 
 <button ion-button full class="btn_azul"  (click)="siguiente()" > SIGUIENTE </button>
 

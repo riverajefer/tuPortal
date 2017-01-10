@@ -1,6 +1,6 @@
 import { Network } from 'ionic-native';
 import { Component } from '@angular/core';
-import { NavController, LoadingController, AlertController } from 'ionic-angular';
+import { NavController, LoadingController, AlertController, ToastController  } from 'ionic-angular';
 import { LoginPage } from '../login/login';
 import { Sql } from "../../providers/Sql";
 import { SoapProvider } from '../../providers/soap-provider';
@@ -25,7 +25,8 @@ export class HomePage {
   public sql: Sql, 
   public soapProvider:SoapProvider, 
   public loadingCtrl: LoadingController,
-  public alertCtrl: AlertController)
+  public alertCtrl: AlertController,
+  public toastCtrl: ToastController)
   {
 
     this.loginPage = LoginPage;
@@ -49,11 +50,22 @@ export class HomePage {
           console.log("Si hay registros");
           if (Network.connection === 'none') {
             this.disabled = false;
+            setTimeout(() => {
+              this.navCtrl.push(LoginPage);
+            }, 4000);            
           }
           else{
             // si hay internet y DATA
-            this.clearData();
-            this.registroData();
+           this.clearData();
+           this.registroData();
+      
+            // En Desarrollo
+            /*
+              setTimeout(() => {
+                this.navCtrl.push(LoginPage);
+              }, 1000); 
+              */
+
             this.disabled = false;
           }
         }
@@ -91,7 +103,6 @@ export class HomePage {
 
       //alert(JSON.stringify(resulUsers, null, 4));
 
-
       // Descarga y Carga tarifa plena
       this.soapProvider.getTarifaPlenaSOAP().subscribe(salida=>{
 
@@ -111,11 +122,15 @@ export class HomePage {
         this.disabled = false;
         this.loading.dismiss();
 
-        let alert = this.alertCtrl.create({
-          subTitle: 'El contenido se descargo correctamente',
-          buttons: ['Ok']
+        let toast = this.toastCtrl.create({
+          message: 'El contenido se descargó correctamente',
+          duration: 3000
         });
-        alert.present();
+        toast.present();
+        setTimeout(() => {
+          this.navCtrl.push(LoginPage);
+        }, 3000);                 
+
       });
 
     });
