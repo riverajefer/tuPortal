@@ -82,9 +82,18 @@ export class TipoTarifaPage {
     }
   }
 
-  toggle(item){
+  toggle(item, e){
+    
     console.log(item)
-    this.lista_estado[item.id] = !this.lista_estado[item.id];
+
+    for(var i=0; i<this.lista_estado.length; i++){
+      if(item.id==i){
+        this.lista_estado[item.id] = !this.lista_estado[item.id];
+      }else{
+        this.lista_estado[i] = true;
+      }
+    }
+
   }
 
   selectCampania(tipo_tarifa:string, campania:string){
@@ -101,3 +110,4 @@ export class TipoTarifaPage {
     alert.present();
   } 
 }
+
