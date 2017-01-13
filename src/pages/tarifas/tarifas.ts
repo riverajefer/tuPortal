@@ -212,7 +212,6 @@ export class TarifasPage {
   }
 
   formatMoney(n):any {
-      //return "$ " + n.toFixed(0).replace(/(\d)(?=(\d{2})+\.)/g, "$1.");
       return "$ " + Number(n.toFixed(1)).toLocaleString()
   }
 
