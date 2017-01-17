@@ -167,7 +167,7 @@ export class Sql {
 
 
     getPagoTarifas(ciudad:string, tarifa:string, campania:string, modalidad:string, usuarios:number):Promise<any>{
-        return this.query('SELECT *,rowid FROM Tarifas WHERE CIUDAD = ? AND TIPO_TARIFA = ?  AND CAMPANA_TARIFA = ? AND ID_ESTADO = ? AND MODALIDAD_PAGO = ? AND  '+ usuarios +'  BETWEEN RANGO_INICIAL_PERSONA AND RANGO_FINAL_PERSONA  GROUP BY FORMA_PAGO ', [ciudad, tarifa, campania, 1, modalidad]);
+        return this.query('SELECT *,rowid FROM Tarifas WHERE CIUDAD = ? AND TIPO_TARIFA = ?  AND CAMPANA_TARIFA = ? AND ID_ESTADO = ? AND MODALIDAD_PAGO = ? AND  '+ usuarios +'  BETWEEN RANGO_INICIAL_PERSONA AND RANGO_FINAL_PERSONA  GROUP BY FORMA_PAGO ORDER BY rowid DESC ', [ciudad, tarifa, campania, 1, modalidad]);
     }
 
     getTarifaPlena(ciudad:string):Promise<any>{
