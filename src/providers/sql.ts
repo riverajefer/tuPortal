@@ -8,14 +8,17 @@ export class Sql {
     private _db: any;
 
     constructor() {
-        if (win.sqlitePlugin) {
+        if (win.cordova) {
             this._db = win.sqlitePlugin.openDatabase({
                 name: DB_NAME,
+                key:'123',
                 location: 2,
                 createFromLocation: 0
             });
+           // alert("open win.sqlitePlugin ")
 
         } else {
+            //alert("SQLite plugin not installed ")
             console.warn('Storage: SQLite plugin not installed, falling back to WebSQL. Make sure to install cordova-sqlite-storage in production!');
 
             this._db = win.openDatabase(DB_NAME, '1.0', 'database', 5 * 1024 * 1024);
