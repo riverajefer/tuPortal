@@ -28,13 +28,12 @@ export class LoginPage {
 
     ) {
 
-  /* 
+  /*
      this.login = {
       user: '558',
       password: '558'
     };
-    */
-  
+  */
    this.login = {};
 
   }
@@ -90,7 +89,7 @@ export class LoginPage {
             this.disabled = false;
 
             //En Desarrollo
-           // this.navCtrl.push(TipoTarifaPage, {ciudad: ciudad });
+            //this.navCtrl.push(TipoTarifaPage, {ciudad: ciudad });
           }
         }
     });

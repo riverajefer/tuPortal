@@ -26,6 +26,7 @@ export class TarifasPage {
   ciudad:string;
   modalidadPago:string;
   lista_modalidadPago = [];
+  lista_modalidadPago2 = [];
   lista_formaValor = [];
   imgModalidad:string;
   textModalidad:string;
@@ -36,6 +37,7 @@ export class TarifasPage {
   valorIVA:number;
   TotalAPagar:number;
   IVATarifa:number;
+  ordenModalidad:number;
   
   constructor(private navCtrl: NavController, public navParams: NavParams, private sql: Sql) {
 
@@ -63,18 +65,22 @@ export class TarifasPage {
         if(modalidad=='Cuenta bancaria'){
           this.imgModalidad = 'debito.png';
           this.textModalidad=modalidad;
+          this.ordenModalidad = 1;
         }
         else if(modalidad=='Efectivo' || modalidad== 'Aviso de Pago'){
           this.imgModalidad = 'aviso.png';
           this.textModalidad=modalidad;
+          this.ordenModalidad = 2;
         }
         else if(modalidad == 'Tarjeta de Crédito'){
           this.imgModalidad = 'credito.png';
           this.textModalidad=modalidad;
+          this.ordenModalidad = 0;
         }
         else{
           this.imgModalidad = 'aviso.png';
           this.textModalidad=modalidad;
+          this.ordenModalidad = 2;
         }
 
         this.lista_modalidadPago.push({
@@ -83,7 +89,8 @@ export class TarifasPage {
             formaPago:salida.res.rows.item(i).FORMA_PAGO,
             valorTarifa:salida.res.rows.item(i).VALOR_TARIFA,
             imgModalidad:this.imgModalidad,
-            textModalidad:this.textModalidad
+            textModalidad:this.textModalidad,
+            ordenModalidad:this.ordenModalidad
         });
         //this.lista_modalidadPago = this.lista_modalidadPago.reverse();
       }
@@ -123,10 +130,30 @@ export class TarifasPage {
         
       });
     });
+    console.log("lista_modalidadPago: ", this.lista_modalidadPago);
+    //this.lista_modalidadPago2 = this.lista_modalidadPago.sort(this.compare);
+    this.lista_modalidadPago  = this.lista_modalidadPago.slice(0);
+    this.lista_modalidadPago2 = this.lista_modalidadPago.sort(function(a,b) {
+        return a.ordenModalidad - b.ordenModalidad;
+    });
+
+    console.log("lista_modalidadPago2: ", this.lista_modalidadPago2);
+
 
     this.selectedSegment = '0';
    
   }
+
+ compare(a,b) {
+  if (a.ordenModalidad < b.ordenModalidad)
+    return -1;
+  if (a.ordenModalidad > b.ordenModalidad)
+    return 1;
+  return 0;
+}
+  
+
+
 
   onSegmentChanged(segmentButton) {
     console.log("segmentButton: ", segmentButton)

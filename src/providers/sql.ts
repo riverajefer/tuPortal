@@ -36,7 +36,7 @@ export class Sql {
             console.error('Storage: Unable to create initial storage tables', err.tx, err.err);
         });
 
-        this.query('CREATE TABLE IF NOT EXISTS Tarifas (key text primary key, TIPO_TARIFA text, CAMPANA_TARIFA text, CIUDAD text, RANGO_INICIAL_PERSONA integer, RANGO_FINAL_PERSONA integer, MODALIDAD_PAGO text, FORMA_PAGO NUMERIC(18,0), VALOR_TARIFA NUMERIC(18,0), VALOR_IVA_TARIFA NUMERIC(18,0), FECHA_VENCIMIENTO_TARIFA text, ID_ESTADO integer )').catch(err =>{
+        this.query('CREATE TABLE IF NOT EXISTS Tarifas (key text primary key, TIPO_TARIFA text, CAMPANA_TARIFA text, CIUDAD text, RANGO_INICIAL_PERSONA integer, RANGO_FINAL_PERSONA integer, MODALIDAD_PAGO text, FORMA_PAGO NUMERIC(18,0), VALOR_TARIFA NUMERIC(18,0), VALOR_IVA_TARIFA NUMERIC(18,0), FECHA_VENCIMIENTO_TARIFA text, ID_ESTADO integer, ORDEN integer)').catch(err =>{
             console.error('Storage: Unable to create initial storage tables', err.tx, err.err);
         });
 
@@ -107,8 +107,33 @@ export class Sql {
 
     createTarifa(Tarifa:any):Promise<any>{
         let c=1;
+        let orden;
         for (let tarifa of Tarifa){
-            this.query("INSERT INTO Tarifas(key, CAMPANA_TARIFA, CIUDAD, FECHA_VENCIMIENTO_TARIFA, FORMA_PAGO, ID_ESTADO, MODALIDAD_PAGO, RANGO_FINAL_PERSONA, RANGO_INICIAL_PERSONA, TIPO_TARIFA, VALOR_IVA_TARIFA, VALOR_TARIFA) VALUES("+c+", '"+tarifa.CAMPANA_TARIFA+"', '"+tarifa.CIUDAD+"', '"+tarifa.FECHA_VENCIMIENTO_TARIFA+"', '"+tarifa.FORMA_PAGO+"', '"+tarifa.ID_ESTADO+"', '"+tarifa.MODALIDAD_PAGO+"', '"+tarifa.RANGO_FINAL_PERSONA+"', '"+tarifa.RANGO_INICIAL_PERSONA+"', '"+tarifa.TIPO_TARIFA+"', '"+tarifa.VALOR_IVA_TARIFA+"', '"+tarifa.VALOR_TARIFA+"')" ).catch(err =>{
+            switch (tarifa.FORMA_PAGO){
+                case "Anual":{
+                    orden=1;
+                    break;
+                }
+                case "Semestral":{
+                    orden=2;
+                    break;
+                }
+                case "Trimestral":{
+                    orden=3;
+                    break;
+                }
+                case "Mensual":{
+                    orden=4;
+                    break;
+                }
+                default:{
+                    orden=5;
+                    break;
+                }                                       
+                
+            }
+
+            this.query("INSERT INTO Tarifas(key, CAMPANA_TARIFA, CIUDAD, FECHA_VENCIMIENTO_TARIFA, FORMA_PAGO, ID_ESTADO, MODALIDAD_PAGO, RANGO_FINAL_PERSONA, RANGO_INICIAL_PERSONA, TIPO_TARIFA, VALOR_IVA_TARIFA, VALOR_TARIFA, ORDEN) VALUES("+c+", '"+tarifa.CAMPANA_TARIFA+"', '"+tarifa.CIUDAD+"', '"+tarifa.FECHA_VENCIMIENTO_TARIFA+"', '"+tarifa.FORMA_PAGO+"', '"+tarifa.ID_ESTADO+"', '"+tarifa.MODALIDAD_PAGO+"', '"+tarifa.RANGO_FINAL_PERSONA+"', '"+tarifa.RANGO_INICIAL_PERSONA+"', '"+tarifa.TIPO_TARIFA+"', '"+tarifa.VALOR_IVA_TARIFA+"', '"+tarifa.VALOR_TARIFA+"', '"+orden+"')" ).catch(err =>{
                 console.error('Storage: Unable to create initial storage tables', err.tx, err.err);
             });
             c++;
@@ -160,7 +185,7 @@ export class Sql {
     }
 
     getModalidadPago(ciudad:string, tarifa:string, campania:string):Promise<any>{
-        return this.query('SELECT  *, rowid FROM Tarifas WHERE CIUDAD = ? AND TIPO_TARIFA = ?  AND CAMPANA_TARIFA = ? AND ID_ESTADO = ?  GROUP BY MODALIDAD_PAGO ORDER BY rowid DESC  ', [ciudad, tarifa, campania, 1])
+        return this.query('SELECT  *, rowid FROM Tarifas WHERE CIUDAD = ? AND TIPO_TARIFA = ?  AND CAMPANA_TARIFA = ? AND ID_ESTADO = ?  GROUP BY MODALIDAD_PAGO ORDER BY MODALIDAD_PAGO DESC  ', [ciudad, tarifa, campania, 1])
     }
 
 
@@ -170,7 +195,7 @@ export class Sql {
 
 
     getPagoTarifas(ciudad:string, tarifa:string, campania:string, modalidad:string, usuarios:number):Promise<any>{
-        return this.query('SELECT *,rowid FROM Tarifas WHERE CIUDAD = ? AND TIPO_TARIFA = ?  AND CAMPANA_TARIFA = ? AND ID_ESTADO = ? AND MODALIDAD_PAGO = ? AND  '+ usuarios +'  BETWEEN RANGO_INICIAL_PERSONA AND RANGO_FINAL_PERSONA  GROUP BY FORMA_PAGO ORDER BY rowid DESC ', [ciudad, tarifa, campania, 1, modalidad]);
+        return this.query('SELECT *,rowid FROM Tarifas WHERE CIUDAD = ? AND TIPO_TARIFA = ?  AND CAMPANA_TARIFA = ? AND ID_ESTADO = ? AND MODALIDAD_PAGO = ? AND  '+ usuarios +'  BETWEEN RANGO_INICIAL_PERSONA AND RANGO_FINAL_PERSONA  GROUP BY FORMA_PAGO ORDER BY ORDEN ASC ', [ciudad, tarifa, campania, 1, modalidad]);
     }
 
     getTarifaPlena(ciudad:string):Promise<any>{

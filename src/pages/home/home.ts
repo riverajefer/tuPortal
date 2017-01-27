@@ -32,6 +32,8 @@ export class HomePage {
     this.loginPage = LoginPage;
     this.disabled = true;
 
+    //this.sql.clearDropTarifas();
+
     sql.getLengthRowsT().then(resp=>{
 
         let countUsuarios = resp.res.rows.item(0).countUsuarios;
@@ -60,8 +62,9 @@ export class HomePage {
            this.registroData();
       
             // En Desarrollo
-            /*
-              setTimeout(() => {
+            
+          /*   
+           setTimeout(() => {
                 this.navCtrl.push(LoginPage);
               }, 1000); 
               */
