@@ -4,6 +4,7 @@ import { NavController, LoadingController, AlertController, ToastController  } f
 import { LoginPage } from '../login/login';
 import { Sql } from "../../providers/Sql";
 import { SoapProvider } from '../../providers/soap-provider';
+import { Platform } from 'ionic-angular';
 declare var X2JS: any;
 
 @Component({
@@ -26,15 +27,23 @@ export class HomePage {
   public soapProvider:SoapProvider, 
   public loadingCtrl: LoadingController,
   public alertCtrl: AlertController,
-  public toastCtrl: ToastController)
+  public toastCtrl: ToastController,
+  public platform: Platform)
   {
+    
+    platform.ready().then(() => {
+      this.Init();
+    });
+  }
+
+  Init(){
 
     this.loginPage = LoginPage;
     this.disabled = true;
 
     //this.sql.clearDropTarifas();
 
-    sql.getLengthRowsT().then(resp=>{
+    this.sql.getLengthRowsT().then(resp=>{
 
         let countUsuarios = resp.res.rows.item(0).countUsuarios;
         console.log("#Usuarios:", countUsuarios);
@@ -54,7 +63,7 @@ export class HomePage {
             this.disabled = false;
             setTimeout(() => {
               this.navCtrl.push(LoginPage);
-            }, 4000);            
+            }, 1500);            
           }
           else{
             // si hay internet y DATA
@@ -132,7 +141,7 @@ export class HomePage {
         toast.present();
         setTimeout(() => {
           this.navCtrl.push(LoginPage);
-        }, 3000);                 
+        }, 2000);                 
 
       });
 

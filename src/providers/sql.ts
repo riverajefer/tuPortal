@@ -1,4 +1,5 @@
 import {Injectable} from "@angular/core";
+import { Platform } from 'ionic-angular';
 
 const DB_NAME: string = '__ionicstorage';
 const win: any = window;
@@ -7,7 +8,9 @@ const win: any = window;
 export class Sql {
     private _db: any;
 
-    constructor() {
+    constructor( platform: Platform) {
+
+    platform.ready().then(() => {
         if (win.cordova) {
             this._db = win.sqlitePlugin.openDatabase({
                 name: DB_NAME,
@@ -15,7 +18,7 @@ export class Sql {
                 location: 2,
                 createFromLocation: 0
             });
-           // alert("open win.sqlitePlugin ")
+            //alert("open win.sqlitePlugin ")
 
         } else {
             //alert("SQLite plugin not installed ")
@@ -24,7 +27,9 @@ export class Sql {
             this._db = win.openDatabase(DB_NAME, '1.0', 'database', 5 * 1024 * 1024);
         }
         this._tryInit();
-    }
+    });
+
+ }
 
     // Initialize the DB with our required tables
     _tryInit() {

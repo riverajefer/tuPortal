@@ -68,22 +68,24 @@ export class LoginPage {
         console.log("#Tarifas:", countTarifas);
 
         if(countTarifas==0){
-
           console.log("NO hay registros");
           if (Network.connection === 'none') {
               this.msgAlert();
           }else{
+            console.log("No Hay registros, hay Internet");
             this.registroData(ciudad);
           }
         }
         else{
           console.log("Si hay registros");
           if (Network.connection === 'none') {
+            console.log("SI Hay registros, NO hay Internet")
             this.disabled = false;
             this.navCtrl.push(TipoTarifaPage, {ciudad: ciudad });
           }
           else{
             // si hay internet y DATA
+            console.log("SI Hay registros, Si  hay Internet")
             this.clearData();
             this.registroData(ciudad);
             this.disabled = false;
