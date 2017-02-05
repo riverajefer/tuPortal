@@ -8,7 +8,9 @@ import 'rxjs/Rx';
 @Injectable()
 export class SoapProvider {
 
-  URL:string = 'http://csemermedica.cloudapp.net:8080/EmermedicaWebService/WebServiceEmermedicaCotizador.asmx';
+  //URL:string = 'http://csemermedica.cloudapp.net:8080/EmermedicaWebService/WebServiceEmermedicaCotizador.asmx';
+  //URL:string = 'http://192.168.10.119:8080/wscotizador/WebServiceEmermedicaCotizador.asmx';
+  URL:string = 'http://herramientascomerciales.emermedica.com.co:8080/wscotizador/WebServiceEmermedicaCotizador.asmx';
   body_users:string;
   body_tarifas:string;
   body_tarifa_plena:string;
