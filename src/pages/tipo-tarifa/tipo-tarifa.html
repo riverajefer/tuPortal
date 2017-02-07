@@ -22,7 +22,7 @@
     </ion-grid>
   </div>
 
-<ion-list radio-group class="lista_gris">
+<ion-list radio-group mode="md" class="lista_gris">
 
   <ion-list-header>
     <h1 class="titulo">TIPO DE TARIFA</h1>
@@ -32,12 +32,12 @@
 
     <ion-item-divider text-left (click)="toggle(item, $event)" >
       {{item.Tarifa | uppercase}}
-      <ion-icon name="{{ lista_estado[item.id] ? 'arrow-dropdown' : 'md-arrow-dropdown' }}" item-right></ion-icon>
+      <ion-icon name="{{ lista_estado[item.id] ? 'arrow-dropdown' : 'arrow-dropdown' }}" item-right></ion-icon>
     </ion-item-divider>
 
-    <ion-item [hidden]="lista_estado[item.id]" *ngFor="let campania of lista_campanias[item.id]" >  
+    <ion-item [hidden]="lista_estado[item.id]" *ngFor="let campania of lista_campanias[item.id]" mode="md">  
       <ion-label>{{campania.Campania | uppercase }}</ion-label>
-      <ion-radio [value]="campania.Campania" (click)="selectCampania(item.Tarifa, campania.Campania)"></ion-radio>
+      <ion-radio mode="md" [value]="campania.Campania" (click)="selectCampania(item.Tarifa, campania.Campania)"></ion-radio>
     </ion-item>
   </ion-item-group>
 

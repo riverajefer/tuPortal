@@ -24,9 +24,18 @@ page-tarifas {
     .segment-md .segment-button.activated, .segment-md .segment-button.segment-activated{
         background-color: #acb2b6 !important;
     }
+    .segment-ios .segment-button.activated, .segment-ios .segment-button.segment-activated{
+        background-color: #acb2b6 !important;
+    } 
+    .segment-wp .segment-button.activated, .segment-wp .segment-button.segment-activated{
+        background-color: #acb2b6 !important;
+    }        
     .radio-md .radio-inner{
         background-color: #af0c14;
     }        
+    .segment-ios .segment-button{
+        border:none;
+    }
 
     .tiempo{
         color:$azul_claro !important;
@@ -40,7 +49,7 @@ page-tarifas {
     .lista_gris{
         background-color: #cacfd1;
     }     
-    .item-md{
+    .item-md, .item-ios, .item-wp {
         background-color: transparent;
         font-size: 1em;
         height: 45px;

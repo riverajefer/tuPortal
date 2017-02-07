@@ -19,7 +19,10 @@ import { Sql } from "../providers/Sql";
     TarifasPage
   ],
   imports: [
-    IonicModule.forRoot(MyApp)
+    IonicModule.forRoot(MyApp,{
+      backButtonText: '',
+      iconMode: 'md',
+    },{})
   ],
   bootstrap: [IonicApp],
   entryComponents: [

@@ -37,7 +37,7 @@
 
   <ion-slide  *ngFor="let modalidad of lista_modalidadPago">
 		<ion-list radio-group class="lista_gris" >
-			<ion-item *ngFor="let item of lista_formaValor">
+			<ion-item *ngFor="let item of lista_formaValor" mode="md">
 				<ion-label>
 					<ion-grid>
 						<ion-row>
@@ -46,7 +46,7 @@
 						</ion-row>
 					</ion-grid>
 				 </ion-label>
-				<ion-radio  value="{{ item.formaPago }}" [checked]="item.selected" (click)="seleccion(item.formaPago, item.valor, modalidad.modalidad, item.IvaTarifa)"></ion-radio>
+				<ion-radio mode="md" value="{{ item.formaPago }}" [checked]="item.selected" (click)="seleccion(item.formaPago, item.valor, modalidad.modalidad, item.IvaTarifa)"></ion-radio>
 			</ion-item>
 		</ion-list>
   </ion-slide>  

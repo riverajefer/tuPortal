@@ -21,33 +21,33 @@
     </ion-grid>
   </div>  
 
-<ion-list radio-group class="lista_gris">
+<ion-list radio-group  mode="md" class="lista_gris">
   <ion-list-header>
     <h1 class="titulo">USUARIOS</h1>
   </ion-list-header>
 
-  <ion-item>
+  <ion-item mode="md">
     <ion-label>
       <img src="assets/images/user1.png" alt="" height="35px">
       <span>1 usuario</span><br>
     </ion-label>
-    <ion-radio checked="true" value="1" (click)="add1()"></ion-radio>
+    <ion-radio checked="true" value="1" (click)="add1()" mode="md" ></ion-radio>
   </ion-item>
 
-  <ion-item>
+  <ion-item mode="md">
     <ion-label>
       <img src="assets/images/user2.png" alt="" height="35px">
       <span>2 usuarios</span>
     </ion-label>
-    <ion-radio value="2" (click)="add2()" ></ion-radio>
+    <ion-radio value="2" (click)="add2()" mode="md" ></ion-radio>
   </ion-item>
 
-  <ion-item>
+  <ion-item mode="md">
     <ion-label>
       <img src="assets/images/user3.png" alt="" height="35px">
       <span>3 usuarios ó más</span> 
     </ion-label>
-    <ion-radio value="3" (click)="tresOmas()"></ion-radio>
+    <ion-radio value="3" (click)="tresOmas()" mode="md"></ion-radio>
   </ion-item>
 
   <div [hidden]="!showMas">

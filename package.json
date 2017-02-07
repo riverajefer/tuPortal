@@ -13,6 +13,7 @@
     "run:before": "build"
   },
   "dependencies": {
+    "sw-toolbox": "3.4.0",
     "@angular/common": "2.0.0",
     "@angular/compiler": "2.0.0",
     "@angular/compiler-cli": "0.6.2",
@@ -32,7 +33,7 @@
     "zone.js": "0.6.21"
   },
   "devDependencies": {
-    "@ionic/app-scripts": "^0.0.36",
+    "@ionic/app-scripts": "^1.0.0",
     "typescript": "^2.0.10"
   },
   "description": "tuPortal: An Ionic project",

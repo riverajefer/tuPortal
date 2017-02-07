@@ -25,6 +25,7 @@ page-tipo-tarifa {
         }        
     }
 
+
     .lista_gris{
         background-color: #cdd3d5;
         margin: 0 auto;
@@ -66,9 +67,11 @@ page-tipo-tarifa {
         }
         ion-item{
             @include gradienteIonItem();
-            color:#FFF;
+            color:#FFF !important;
         }
         
+
+
         .item-radio-checked.item-md ion-label{
             color: #FFF;
           //  font-family: $font-emer-bold;
@@ -92,6 +95,15 @@ page-tipo-tarifa {
         .list-header-md, .list-md ion-item-divider {
             border-bottom: 3px inset #a9b1b3;
         }
+    /******** Estilos IOS************/
+            .item-radio-checked.item-ios ion-label {
+                color: #ffffff;
+            }
+
+            .radio-ios .radio-checked .radio-inner{
+                border-color:#fff;
+            }
+    /******** FIn Estilos IOS************/
 
     }
     .item-md_{

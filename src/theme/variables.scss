@@ -128,7 +128,7 @@ $font-emer-bold: 'Conv_TheSans_B6_SemiBold',Sans-Serif;
     color: #003e71 !important;
     background-color: transparent;
 }
-.toolbar-background-md {
+.toolbar-background-md, .toolbar-background-ios, .toolbar-background-wp {
     border-color: #b2b2b2;
     //background: none !important;
     background: rgba(212,212,214,0.3) !important;
@@ -224,3 +224,8 @@ $ionicons-font-path: "../assets/fonts";
 }
 
 
+
+
+.content-ios, .content-wp{
+    background-color: transparent !important;
+}

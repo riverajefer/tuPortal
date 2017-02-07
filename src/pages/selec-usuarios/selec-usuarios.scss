@@ -46,9 +46,8 @@ page-selec-usuarios {
         .list-header-md, .list-md ion-item-divider {
             border-bottom: 3px inset #a9b1b3;
         }
-
     }
-    .item-md{
+    .item-md, .item-ios, .item-wp{
         background-color: transparent;
         font-size: 1em;
         height: 45px;
@@ -64,8 +63,11 @@ page-selec-usuarios {
     .radio-md .radio-icon{
         width: 25px;
         height: 25px;
-
     }
+    .input-ios .text-input{
+       padding: 0px !important;
+    }
+
     .radio-md .radio-inner{
         background-color: #a60a11;
         top: 3px;
